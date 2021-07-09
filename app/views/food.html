@@ -101,21 +101,21 @@
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="foodID">Mã Món</label>
-                                            <input type="text" class="form-control" id="foodID" placeholder="Nhập ID"
+                                            <input type="text" class="form-control" id="foodID" name="maMon" placeholder="Nhập ID"
                                                 value="" required>
                                             <div id="invalidID" class="invalid-feedback">
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="tenMon">Tên Món</label>
-                                            <input type="text" class="form-control" id="tenMon"
+                                            <input type="text" class="form-control" id="tenMon" name="tenMon"
                                                 placeholder="Nhập tên món" required>
                                             <div id="invalidTen" class="invalid-form">
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="loai">Loại Món</label>
-                                            <select class="custom-select d-block w-100" id="loai" required>
+                                            <select class="custom-select d-block w-100" id="loai" name="loaiMon" required>
                                                 <option value="">Chọn loại</option>
                                                 <option value="loai1">Chay</option>
                                                 <option value="loai2">Mặn</option>
@@ -126,14 +126,14 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="giaMon">Giá Món</label>
-                                            <input type="text" class="form-control" id="giaMon" placeholder="Nhập giá"
+                                            <input type="text" class="form-control" id="giaMon" name="giaMon" placeholder="Nhập giá"
                                                 value="" required>
                                             <div id="invalidGia" class="invalid-feedback">
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="khuyenMai">Khuyến Mãi (%)</label>
-                                            <select class="custom-select d-block w-100" id="khuyenMai" required>
+                                            <select class="custom-select d-block w-100" id="khuyenMai" name="khuyenMai" required>
                                                 <option value="">Chọn khuyến mãi</option>
                                                 <option>10</option>
                                                 <option>20</option>
@@ -146,7 +146,7 @@
 
                                         <div class="col-md-6 mb-3">
                                             <label for="tinhTrang">Tình Trạng</label>
-                                            <select class="custom-select d-block w-100" id="tinhTrang" required>
+                                            <select class="custom-select d-block w-100" id="tinhTrang" name="tinhTrang" required>
                                               <option value="">Chọn tình trạng</option>
                                               <option value="0">Hết</option>
                                               <option value="1">Còn</option>
@@ -160,13 +160,13 @@
                                     <div class="mb-3">
                                         <div class="form-group">
                                             <label for="hinhMon">Hình Món Ăn</label>                                          
-                                            <input type="text" id="hinhMon" class="form-control" placeholder="Nhập link hình ảnh" required>
+                                            <input type="text" id="hinhMon" name="hinhMon" class="form-control" placeholder="Nhập link hình ảnh" required>
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="moTa">Mô Tả</label>
-                                        <textarea class="form-control" id="moTa" rows="3"></textarea>
+                                        <textarea class="form-control" id="moTa" name="moTa" rows="3"></textarea>
                                         <div id="invalidMoTa" class="invalid-form">
                                         </div>
                                     </div>

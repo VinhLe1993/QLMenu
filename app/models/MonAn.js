@@ -1,4 +1,4 @@
-export class MonAn {
+export class MonAn { //Lớp đối tượng (Kiễu dữ liệu mình tự xây dựng)
     maMon = '';
     tenMon = '';
     loaiMon = '';
@@ -19,6 +19,8 @@ export class MonAn {
         return giaKhuyenMai;
     }
     hienThiThongTin = () => {
-        
+
     }
 }
+
+let mon = new MonAn () ; //Instance (Đối tượng) (Biến cụ thể có kiểu dữ liệu của lớp đối tượng)
