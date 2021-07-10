@@ -1,5 +1,7 @@
 import { MonAn } from "../models/MonAn.js";
 
+let arrMonAn = [];
+
 //Định nghĩa sự kiện cho btnThemMon
 document.querySelector("#btnThemMon").onclick = () => {
   //Tạo đối tượng chứa thông tin người dùng nhập vào
@@ -24,27 +26,36 @@ document.querySelector("#btnThemMon").onclick = () => {
     ".list-group-item span, .list-group-item p"
   );
 
-  for (let tag of arrTagOutPut) {
-    /**Đối với một số thẻ không có thuộc tính dom mà ta thêm vào
-     * để lấy giá tri trên thẻ, ta dùng phương thức getAttribute
-     */
-    let name = tag.getAttribute("name");
-    if (name === "giaSauKhuyenMai") {
-      tag.innerHTML = monAn.tinhGiaKhuyenMai();
-    } else if (name === "loaiMon") {
-      tag.innerHTML = monAn[name] === "loai1" ? "Chay" : "Mặn";
-      // if (monAn[name] === 'loai1') {
-      //     tag.innerHTML = 'Chay';
-      // } else {
-      //     tag.innerHTML = 'Mặn';
-      // }
-    } else if (name === "tinhTrang") {
-      tag.innerHTML = monAn[name] == "0" ? "Hết" : "Còn";
-    } else {
-      tag.innerHTML = monAn[name];
-    }
-  }
-  document.querySelector ('#imgMonAn').src = monAn['hinhAnh'];
+  //Cách 1: dùng querySelectorAll + name
+  //   for (let tag of arrTagOutPut) {
+  //     /**Đối với một số thẻ không có thuộc tính dom mà ta thêm vào
+  //      * để lấy giá tri trên thẻ, ta dùng phương thức getAttribute
+  //      */
+  //     let name = tag.getAttribute("name");
+  //     if (name === "giaSauKhuyenMai") {
+  //       tag.innerHTML = monAn.tinhGiaKhuyenMai();
+  //     } else if (name === "loaiMon") {
+  //       tag.innerHTML = monAn[name] === "loai1" ? "Chay" : "Mặn";
+  //       // if (monAn[name] === 'loai1') {
+  //       //     tag.innerHTML = 'Chay';
+  //       // } else {
+  //       //     tag.innerHTML = 'Mặn';
+  //       // }
+  //     } else if (name === "tinhTrang") {
+  //       tag.innerHTML = monAn[name] == "0" ? "Hết" : "Còn";
+  //     } else {
+  //       tag.innerHTML = monAn[name];
+  //     }
+  //   }
+  //   document.querySelector ('#imgMonAn').src = monAn['hinhAnh'];
+
+  //Cách 2: dùng oop
+  document.querySelector(".renderTable").innerHTML = monAn.hienThiThongTin();
+
+  //Thêm món ăn
+  arrMonAn.push(monAn);
+  localStorage.setItem('danhSachMonAn',JSON.stringify(arrMonAn));
+
 };
 
 //các cách gán giá trị cho thuộc tính của object
