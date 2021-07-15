@@ -1,7 +1,9 @@
+import { Menu } from "../models/Menu.js";
 import { MonAn } from "../models/MonAn.js";
 
-let arrMonAn = [];
-
+let menu = new Menu();
+//Lấy dữ liệu từ local storage
+menu.loadStorage();
 //Định nghĩa sự kiện cho btnThemMon
 document.querySelector("#btnThemMon").onclick = () => {
   //Tạo đối tượng chứa thông tin người dùng nhập vào
@@ -22,9 +24,9 @@ document.querySelector("#btnThemMon").onclick = () => {
   console.log("arrTabInput", arrTagInput);
   console.log("monAn", monAn);
 
-  var arrTagOutPut = document.querySelectorAll(
-    ".list-group-item span, .list-group-item p"
-  );
+  // var arrTagOutPut = document.querySelectorAll(
+  //   ".list-group-item span, .list-group-item p"
+  // );
 
   //Cách 1: dùng querySelectorAll + name
   //   for (let tag of arrTagOutPut) {
@@ -53,9 +55,9 @@ document.querySelector("#btnThemMon").onclick = () => {
   document.querySelector(".renderTable").innerHTML = monAn.hienThiThongTin();
 
   //Thêm món ăn
-  arrMonAn.push(monAn);
-  localStorage.setItem('danhSachMonAn',JSON.stringify(arrMonAn));
-
+  menu.addToMenu(monAn);
+  menu.saveStorage();
+  // localStorage.setItem("danhSachMonAn", JSON.stringify(arrMonAn));
 };
 
 //các cách gán giá trị cho thuộc tính của object
